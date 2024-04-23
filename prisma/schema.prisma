@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique
+  password    String
+  robots      Robot[]
+}
+
+// Robot model
+model Robot {
+  id          Int       @id @default(autoincrement())
+  name        String
+  color       String
+  userId      Int       // This represents the foreign key relationship with User
+
+  // Define the User foreign key relationship
+  user        User      @relation(fields: [userId], references: [id])
+}

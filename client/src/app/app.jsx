@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AuthForm from "../features/auth/AuthForm";
 import { useMeQuery } from "../features/auth/authSlice";
 import Dashboard from "../features/dashboard/Dashboard";
-import "./App.css";
+import "./app.css";
 
 /**
  * App is the root component of our application.
